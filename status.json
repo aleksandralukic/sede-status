@@ -1,0 +1,1248 @@
+{
+  "generated_at": "2026-09-02T17:16:55.919976+00:00",
+  "results": [
+    {
+      "id": "pag-home",
+      "url": "https://administracion.gob.es/",
+      "org": "Punto de Acceso General",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "high",
+      "notes": "The incumbent. Baseline for the whole project.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://administracion.gob.es/",
+      "elapsed_ms": 633,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El punto de entrada oficial a toda la administración: estatal, autonómica y local."
+    },
+    {
+      "id": "pag-sede",
+      "url": "https://sede.administracion.gob.es/",
+      "org": "Sede PAG",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "via curl (TLS fallback)",
+      "final_url": "https://sede.administracion.gob.es/",
+      "elapsed_ms": 190,
+      "checked_at": "2026-09-02T17:09:08.911066+00:00",
+      "alert": false,
+      "desc": "La sede electrónica del Punto de Acceso General, para trámites estatales."
+    },
+    {
+      "id": "clave",
+      "url": "https://clave.gob.es/clave_Home/clave.html",
+      "org": "Cl@ve",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "identidad-documentos"
+      ],
+      "criticality": "high",
+      "notes": "Gateway for nearly every other trámite.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://clave.gob.es/clave",
+      "elapsed_ms": 144,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El sistema para identificarte por internet ante la administración."
+    },
+    {
+      "id": "fnmt-sede",
+      "url": "https://www.sede.fnmt.gob.es/",
+      "org": "FNMT-RCM",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "identidad-documentos"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.sede.fnmt.gob.es/",
+      "elapsed_ms": 157,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Donde se pide el certificado digital."
+    },
+    {
+      "id": "dni-cita",
+      "url": "https://www.citapreviadnie.es/citaPreviaDni/Inicio.action",
+      "org": "Policía Nacional",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "identidad-documentos"
+      ],
+      "criticality": "high",
+      "notes": "Notoriously flaky. Good stress case.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.citapreviadnie.es/citaPreviaDni/Inicio.action",
+      "elapsed_ms": 131,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Cita previa para renovar el DNI y el pasaporte."
+    },
+    {
+      "id": "extranjeria-cita",
+      "url": "https://sede.administracionespublicas.gob.es/",
+      "org": "Sede Administraciones Públicas",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "extranjeria",
+        "identidad-documentos"
+      ],
+      "criticality": "high",
+      "notes": "Cita previa extranjería. Breaks constantly, thousands depend on it.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.administracionespublicas.gob.es/",
+      "elapsed_ms": 620,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Cita previa de extranjería y trámites con las delegaciones del Gobierno."
+    },
+    {
+      "id": "extranjeria-info",
+      "url": "https://www.inclusion.gob.es/web/migraciones/inicio",
+      "org": "Secretaría de Estado de Migraciones",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "extranjeria"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY: path has moved before.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.inclusion.gob.es/web/migraciones/home",
+      "elapsed_ms": 552,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Información oficial sobre extranjería y migraciones."
+    },
+    {
+      "id": "aeat",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "org": "Agencia Tributaria",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "impuestos"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.agenciatributaria.gob.es/",
+      "elapsed_ms": 155,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "La sede de Hacienda: declaraciones, deudas y certificados fiscales."
+    },
+    {
+      "id": "segsocial",
+      "url": "https://sede.seg-social.gob.es/",
+      "org": "Seguridad Social",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "prestaciones",
+        "empleo",
+        "salud"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio",
+      "elapsed_ms": 210,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Trámites de la Seguridad Social: pensiones, bajas, vida laboral."
+    },
+    {
+      "id": "imv",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8d06-4645-bde7-05374ee42ac7",
+      "org": "Seguridad Social - IMV",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "prestaciones"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY: long portal URL, high rot risk. Exactly the kind this project exists for.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8d06-4645-bde7-05374ee42ac7",
+      "elapsed_ms": 237,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El Ingreso Mínimo Vital: qué es y cómo pedirlo."
+    },
+    {
+      "id": "sepe",
+      "url": "https://www.sepe.es/",
+      "org": "SEPE",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "empleo",
+        "prestaciones"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.sepe.es/HomeSepe",
+      "elapsed_ms": 205,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Información del paro: prestaciones, subsidios y empleo."
+    },
+    {
+      "id": "sepe-sede",
+      "url": "https://sede.sepe.gob.es/",
+      "org": "SEPE sede",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "empleo",
+        "prestaciones"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.sepe.gob.es/portalSede",
+      "elapsed_ms": 208,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "La sede del SEPE, donde se pide el paro por internet."
+    },
+    {
+      "id": "mites",
+      "url": "https://www.mites.gob.es/",
+      "org": "Ministerio de Trabajo",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "empleo"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.mites.gob.es/",
+      "elapsed_ms": 197,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Normativa laboral, convenios y ayudas al empleo."
+    },
+    {
+      "id": "dgt-sede",
+      "url": "https://sede.dgt.gob.es/",
+      "org": "DGT",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "trafico"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.dgt.gob.es/es/",
+      "elapsed_ms": 261,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Trámites de tráfico: carné, multas y vehículos."
+    },
+    {
+      "id": "catastro",
+      "url": "https://www.sedecatastro.gob.es/",
+      "org": "Catastro",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "vivienda",
+        "impuestos"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.sedecatastro.gob.es/",
+      "elapsed_ms": 221,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Consulta y certificados de los datos catastrales de tu vivienda."
+    },
+    {
+      "id": "mjusticia-sede",
+      "url": "https://sede.mjusticia.gob.es/",
+      "org": "Ministerio de Justicia",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "justicia",
+        "familia-menores",
+        "identidad-documentos"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.mjusticia.gob.es/",
+      "elapsed_ms": 220,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Antecedentes penales y certificados de nacimiento o matrimonio."
+    },
+    {
+      "id": "oav",
+      "url": "https://www.mjusticia.gob.es/es/ciudadania/victimas",
+      "org": "Oficinas de Asistencia a las Víctimas",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "justicia",
+        "violencia-genero"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY. Referral target for male victims and non-partner violence.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.mjusticia.gob.es/es/ciudadania/victimas",
+      "elapsed_ms": 1068,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Las oficinas que atienden y acompañan a víctimas de delitos."
+    },
+    {
+      "id": "poderjudicial",
+      "url": "https://www.poderjudicial.es/",
+      "org": "CGPJ",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "justicia"
+      ],
+      "criticality": "low",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.poderjudicial.es/cgpj/",
+      "elapsed_ms": 437,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El portal de los juzgados y tribunales."
+    },
+    {
+      "id": "justicia-gratuita",
+      "url": "https://www.abogacia.es/servicios-abogacia/justicia-gratuita/",
+      "org": "Abogacía Española",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "justicia"
+      ],
+      "criticality": "high",
+      "notes": "Legal aid. VERIFY path.",
+      "status": "DEAD",
+      "http": 200,
+      "detail": "Comprobado manualmente: «la página a la que estás intentando acceder no está disponible» (visto en navegador el 2026-09-02; al robot solo le llega el bloqueo de Incapsula)",
+      "final_url": "https://www.abogacia.es/servicios-abogacia/justicia-gratuita/",
+      "elapsed_ms": 89,
+      "checked_at": "2026-09-02T17:09:13.349273+00:00",
+      "alert": true,
+      "desc": "Cómo pedir abogado de oficio si no puedes pagarlo."
+    },
+    {
+      "id": "educacion-sede",
+      "url": "https://sede.educacion.gob.es/portada.html",
+      "org": "Ministerio de Educación",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "educacion"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://sede.educacion.gob.es/portada.html",
+      "elapsed_ms": 102,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Trámites de educación: títulos y homologaciones."
+    },
+    {
+      "id": "becas",
+      "url": "https://www.becaseducacion.gob.es/",
+      "org": "Becas MEFP",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "educacion",
+        "prestaciones"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY domain.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.becaseducacion.gob.es/portada.html",
+      "elapsed_ms": 122,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Las becas de estudios: plazos y solicitud."
+    },
+    {
+      "id": "sanidad",
+      "url": "https://www.sanidad.gob.es/",
+      "org": "Ministerio de Sanidad",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "salud"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.sanidad.gob.es/",
+      "elapsed_ms": 1438,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Salud pública y derechos sanitarios."
+    },
+    {
+      "id": "consumo",
+      "url": "https://www.consumo.gob.es/",
+      "org": "Ministerio de Consumo",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "consumo"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "via curl (TLS fallback)",
+      "final_url": "https://www.dsca.gob.es/es",
+      "elapsed_ms": 3462,
+      "checked_at": "2026-09-02T17:09:09.211956+00:00",
+      "alert": false,
+      "desc": "Tus derechos como consumidor y cómo reclamar."
+    },
+    {
+      "id": "aepd",
+      "url": "https://www.aepd.es/",
+      "org": "AEPD",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "datos-personales"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aepd.es/",
+      "elapsed_ms": 120,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Donde se denuncia el mal uso de tus datos personales."
+    },
+    {
+      "id": "defensor",
+      "url": "https://www.defensordelpueblo.es/",
+      "org": "Defensor del Pueblo",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "justicia"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.defensordelpueblo.es/",
+      "elapsed_ms": 1945,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Recoge las quejas de los ciudadanos contra la administración."
+    },
+    {
+      "id": "ine",
+      "url": "https://www.ine.es/",
+      "org": "INE",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "low",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.ine.es/",
+      "elapsed_ms": 186,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Las estadísticas oficiales de España."
+    },
+    {
+      "id": "boe",
+      "url": "https://www.boe.es/",
+      "org": "BOE",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.boe.es/",
+      "elapsed_ms": 115,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El diario oficial: leyes, ayudas y anuncios del Estado."
+    },
+    {
+      "id": "datos-gob",
+      "url": "https://datos.gob.es/",
+      "org": "datos.gob.es",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "datos-abiertos"
+      ],
+      "criticality": "high",
+      "notes": "Phase 2 input. Check for a SIA dataset here.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://datos.gob.es/es/",
+      "elapsed_ms": 538,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El catálogo de datos abiertos de las administraciones."
+    },
+    {
+      "id": "admin-electronica",
+      "url": "https://administracionelectronica.gob.es/",
+      "org": "PAe",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "datos-abiertos"
+      ],
+      "criticality": "high",
+      "notes": "Where SIA/DIR3 docs live. Currently returns a WAF rejection to some clients - perfect BLOCKED test case.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://administracionelectronica.gob.es/",
+      "elapsed_ms": 265,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El portal técnico de la administración electrónica."
+    },
+    {
+      "id": "sia-info",
+      "url": "https://administracion.gob.es/pag_Home/espanaAdmon/SIA.html",
+      "org": "SIA",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "datos-abiertos"
+      ],
+      "criticality": "high",
+      "notes": "Phase 2 spike starts here.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://administracion.gob.es/pag_Home/espanaAdmon/SIA.html",
+      "elapsed_ms": 276,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El catálogo oficial de procedimientos administrativos."
+    },
+    {
+      "id": "igualdad",
+      "url": "https://www.igualdad.gob.es/",
+      "org": "Ministerio de Igualdad",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.igualdad.gob.es/",
+      "elapsed_ms": 119,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Políticas de igualdad y contra la discriminación."
+    },
+    {
+      "id": "violenciagenero",
+      "url": "https://violenciagenero.igualdad.gob.es/",
+      "org": "Delegación del Gobierno contra la Violencia de Género",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "high",
+      "notes": "016 chat lives here. Highest-stakes link in the set.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://violenciagenero.igualdad.gob.es/",
+      "elapsed_ms": 3396,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Información y ayuda contra la violencia de género. Teléfono 016."
+    },
+    {
+      "id": "inmujeres",
+      "url": "https://www.inmujeres.gob.es/",
+      "org": "Instituto de las Mujeres",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.inmujeres.gob.es/",
+      "elapsed_ms": 1668,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Derechos de las mujeres y programas de igualdad."
+    },
+    {
+      "id": "muface",
+      "url": "https://www.muface.es/",
+      "org": "MUFACE",
+      "level": "AGE",
+      "region": "ES",
+      "tags": [
+        "salud",
+        "prestaciones"
+      ],
+      "criticality": "low",
+      "status": "OK",
+      "http": 200,
+      "detail": "via curl (TLS fallback)",
+      "final_url": "https://muface.es/",
+      "elapsed_ms": 187,
+      "checked_at": "2026-09-02T17:09:12.797446+00:00",
+      "alert": false,
+      "desc": "La mutualidad de los funcionarios: salud y prestaciones."
+    },
+    {
+      "id": "aragon-home",
+      "url": "https://www.aragon.es/",
+      "org": "Gobierno de Aragón",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aragon.es/",
+      "elapsed_ms": 311,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El portal del Gobierno de Aragón."
+    },
+    {
+      "id": "aragon-tramites",
+      "url": "https://www.aragon.es/tramites",
+      "org": "Gobierno de Aragón - Trámites",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aragon.es/tramites",
+      "elapsed_ms": 508,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El buscador de trámites del Gobierno de Aragón."
+    },
+    {
+      "id": "aragon-iam",
+      "url": "https://www.aragon.es/gobierno/iam",
+      "org": "Instituto Aragonés de la Mujer",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aragon.es/gobierno/iam",
+      "elapsed_ms": 359,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Atención y asesoría a mujeres en Aragón."
+    },
+    {
+      "id": "aragon-iam-servicios",
+      "url": "https://www.aragon.es/-/servicios-y-asesorias-instituto-aragones-de-la-mujer",
+      "org": "IAM - Servicios",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "high",
+      "notes": "The '/-/' slug pattern on aragon.es is very rot-prone.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aragon.es/-/servicios-y-asesorias-instituto-aragones-de-la-mujer",
+      "elapsed_ms": 450,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Las asesorías gratuitas del IAM: jurídica, psicológica, laboral."
+    },
+    {
+      "id": "aragon-iass",
+      "url": "https://www.aragon.es/organismos/departamento-de-bienestar-social-y-familia/instituto-aragones-de-servicios-sociales",
+      "org": "IASS",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "servicios-sociales",
+        "familia-menores"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.aragon.es/gobierno/iass",
+      "elapsed_ms": 392,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Los servicios sociales de Aragón: dependencia, mayores, ayudas."
+    },
+    {
+      "id": "inaem",
+      "url": "https://inaem.aragon.es/",
+      "org": "INAEM Aragón",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "empleo"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://inaem.aragon.es/",
+      "elapsed_ms": 527,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El servicio aragonés de empleo: demanda, ofertas y cursos."
+    },
+    {
+      "id": "saludinforma",
+      "url": "https://www.saludinforma.es/",
+      "org": "Salud Informa Aragón",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "salud"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.saludinforma.es/portalsi/web/salud/inicio",
+      "elapsed_ms": 1723,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Cita previa médica y gestiones de salud en Aragón."
+    },
+    {
+      "id": "boa",
+      "url": "https://www.boa.aragon.es/",
+      "org": "Boletín Oficial de Aragón",
+      "level": "CCAA",
+      "region": "ES-AR",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.boa.aragon.es/",
+      "elapsed_ms": 67,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El boletín oficial de Aragón."
+    },
+    {
+      "id": "zaragoza-home",
+      "url": "https://www.zaragoza.es/sede/",
+      "org": "Ayuntamiento de Zaragoza",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "meta-directorio",
+        "vecinos-convivencia"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/",
+      "elapsed_ms": 150,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "La sede electrónica del Ayuntamiento: todos los trámites municipales."
+    },
+    {
+      "id": "zaragoza-social",
+      "url": "https://www.zaragoza.es/sede/portal/servicios-sociales/",
+      "org": "Zaragoza - Servicios Sociales",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "servicios-sociales"
+      ],
+      "criticality": "high",
+      "notes": "Fixed 2026-09-02: old /ciudad/sectores/social/ 404s. /sede/portal/derechos-sociales/ redirects here too.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/portal/servicios-sociales/",
+      "elapsed_ms": 158,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Ayudas de urgencia, centros municipales y dependencia."
+    },
+    {
+      "id": "zaragoza-padron",
+      "url": "https://www.zaragoza.es/sede/servicio/tramite/3317",
+      "org": "Zaragoza - Padrón (altas)",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "identidad-documentos",
+        "vivienda"
+      ],
+      "criticality": "high",
+      "notes": "Fixed 2026-09-02: old /ciudad/encasa/padron/ 404s. Trámite 3317 = Padrón: Altas; 3319 = cambio de domicilio. Full catalogue at /sede/servicio/tramite.json (700 trámites, no SIA field).",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/servicio/tramite/3317",
+      "elapsed_ms": 714,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Empadronarse en Zaragoza: el alta en el padrón municipal."
+    },
+    {
+      "id": "gencat-dones",
+      "url": "https://dones.gencat.cat/",
+      "org": "Institut Català de les Dones",
+      "level": "CCAA",
+      "region": "ES-CT",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://dones.gencat.cat/ca/inici",
+      "elapsed_ms": 259,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El instituto catalán para la igualdad de las mujeres."
+    },
+    {
+      "id": "emakunde",
+      "url": "https://www.emakunde.euskadi.eus/",
+      "org": "Emakunde",
+      "level": "CCAA",
+      "region": "ES-PV",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.emakunde.euskadi.eus/hasiera/",
+      "elapsed_ms": 498,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El instituto vasco de la mujer."
+    },
+    {
+      "id": "madrid-ccaa",
+      "url": "https://www.comunidad.madrid/",
+      "org": "Comunidad de Madrid",
+      "level": "CCAA",
+      "region": "ES-MD",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.comunidad.madrid/",
+      "elapsed_ms": 95,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El portal de la Comunidad de Madrid."
+    },
+    {
+      "id": "andalucia",
+      "url": "https://www.juntadeandalucia.es/",
+      "org": "Junta de Andalucía",
+      "level": "CCAA",
+      "region": "ES-AN",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.juntadeandalucia.es/",
+      "elapsed_ms": 259,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "El portal de la Junta de Andalucía."
+    },
+    {
+      "id": "cruzroja",
+      "url": "https://www2.cruzroja.es/",
+      "org": "Cruz Roja Española",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "servicios-sociales"
+      ],
+      "criticality": "high",
+      "notes": "VERIFY: www2 vs www.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www2.cruzroja.es/",
+      "elapsed_ms": 959,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Ayuda humanitaria y social: empleo, mayores, emergencias."
+    },
+    {
+      "id": "caritas",
+      "url": "https://www.caritas.es/",
+      "org": "Cáritas Española",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "servicios-sociales",
+        "vivienda"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.caritas.es/",
+      "elapsed_ms": 1544,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Ayuda a personas en situación de pobreza o exclusión."
+    },
+    {
+      "id": "cear",
+      "url": "https://www.cear.es/",
+      "org": "CEAR",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "extranjeria"
+      ],
+      "criticality": "high",
+      "notes": "403s bot UAs (WAF). Expect BLOCKED; show publicly as 'cannot verify', never broken.",
+      "status": "BLOCKED",
+      "http": 403,
+      "detail": "http 403, likely WAF",
+      "final_url": "https://www.cear.es/",
+      "elapsed_ms": 95,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Atención a personas refugiadas y solicitantes de asilo."
+    },
+    {
+      "id": "accem",
+      "url": "https://www.accem.es/",
+      "org": "Accem",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "extranjeria",
+        "servicios-sociales"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.accem.es/",
+      "elapsed_ms": 336,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Apoyo a migrantes y refugiados: acogida y asesoría legal."
+    },
+    {
+      "id": "anar",
+      "url": "https://www.anar.org/",
+      "org": "Fundación ANAR",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "familia-menores"
+      ],
+      "criticality": "high",
+      "notes": "016 redirects minors here.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.anar.org/",
+      "elapsed_ms": 231,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Ayuda a niños y adolescentes en riesgo. Teléfono 900 20 20 10."
+    },
+    {
+      "id": "esperanza",
+      "url": "https://telefonodelaesperanza.org/",
+      "org": "Teléfono de la Esperanza",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "salud"
+      ],
+      "criticality": "high",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://telefonodelaesperanza.org/",
+      "elapsed_ms": 209,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Apoyo emocional en crisis, por teléfono y gratis. 717 003 717."
+    },
+    {
+      "id": "secretariado-gitano",
+      "url": "https://www.gitanos.org/",
+      "org": "Fundación Secretariado Gitano",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "servicios-sociales",
+        "empleo"
+      ],
+      "criticality": "medium",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.gitanos.org/",
+      "elapsed_ms": 257,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "Empleo e inclusión de la comunidad gitana."
+    },
+    {
+      "id": "congde",
+      "url": "https://congde.org/",
+      "org": "Coordinadora de ONGD",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "medium",
+      "notes": "Member directory - scaling input for the seed list. TLS handshake fails even from curl (2026-09-02) - genuine site-side TLS misconfig, recheck in a week.",
+      "status": "ERROR",
+      "http": 0,
+      "detail": "SSLError (curl exit 35)",
+      "final_url": "https://congde.org/",
+      "elapsed_ms": 150,
+      "checked_at": "2026-09-02T17:09:13.093545+00:00",
+      "alert": true,
+      "desc": "La coordinadora estatal de las ONG de desarrollo."
+    },
+    {
+      "id": "plataforma-ong",
+      "url": "https://www.plataformaong.org/",
+      "org": "Plataforma de ONG de Acción Social",
+      "level": "ONG",
+      "region": "ES",
+      "tags": [
+        "meta-directorio"
+      ],
+      "criticality": "medium",
+      "notes": "Member directory - scaling input.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.plataformaong.org/",
+      "elapsed_ms": 156,
+      "checked_at": "2026-09-02T16:57:11.909816+00:00",
+      "alert": false,
+      "desc": "La plataforma de las grandes ONG de acción social."
+    },
+    {
+      "id": "zaragoza-dinamica",
+      "url": "https://www.zaragozadinamica.es/",
+      "org": "Zaragoza Dinámica",
+      "desc": "Formación y empleo municipal: cursos gratuitos y orientación laboral.",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "empleo",
+        "educacion"
+      ],
+      "criticality": "high",
+      "notes": "Added 2026-09-02 by request; redirects to web.zaragozadinamica.es.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://web.zaragozadinamica.es",
+      "elapsed_ms": 2081,
+      "checked_at": "2026-09-02T17:16:43.677899+00:00",
+      "alert": false
+    },
+    {
+      "id": "zaragoza-vivienda",
+      "url": "https://www.zaragozavivienda.es/",
+      "org": "Zaragoza Vivienda",
+      "desc": "La sociedad municipal de vivienda: alquiler asequible y ayudas.",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "vivienda"
+      ],
+      "criticality": "high",
+      "notes": "Added 2026-09-02, verified with curl.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragozavivienda.es/",
+      "elapsed_ms": 303,
+      "checked_at": "2026-09-02T17:16:47.915773+00:00",
+      "alert": false
+    },
+    {
+      "id": "zaragoza-juventud",
+      "url": "https://www.zaragoza.es/sede/portal/juventud/",
+      "org": "Zaragoza - Juventud (CIPAJ)",
+      "desc": "El portal joven del Ayuntamiento, con la información del CIPAJ.",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "familia-menores",
+        "educacion"
+      ],
+      "criticality": "medium",
+      "notes": "Added 2026-09-02. Old /ciudad/sectores/jovenes/cipaj/ redirects here.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/portal/juventud/",
+      "elapsed_ms": 267,
+      "checked_at": "2026-09-02T17:16:50.356666+00:00",
+      "alert": false
+    },
+    {
+      "id": "zaragoza-igualdad",
+      "url": "https://www.zaragoza.es/sede/servicio/equipamiento/27707",
+      "org": "Zaragoza - Casa de la Mujer",
+      "desc": "La Casa de la Mujer y la unidad municipal de igualdad.",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "violencia-genero"
+      ],
+      "criticality": "high",
+      "notes": "Added 2026-09-02. /sede/portal/igualdad/ redirects to this equipamiento page.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/servicio/equipamiento/27707",
+      "elapsed_ms": 986,
+      "checked_at": "2026-09-02T17:16:52.771929+00:00",
+      "alert": false
+    },
+    {
+      "id": "zaragoza-movilidad",
+      "url": "https://www.zaragoza.es/sede/portal/movilidad/",
+      "org": "Zaragoza - Movilidad",
+      "desc": "Moverse por la ciudad: bus, tranvía, bici y tráfico.",
+      "level": "LOCAL",
+      "region": "ES-AR-Z",
+      "tags": [
+        "trafico"
+      ],
+      "criticality": "medium",
+      "notes": "Added 2026-09-02, verified with curl.",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.zaragoza.es/sede/portal/movilidad/",
+      "elapsed_ms": 275,
+      "checked_at": "2026-09-02T17:16:55.919976+00:00",
+      "alert": false
+    }
+  ]
+}

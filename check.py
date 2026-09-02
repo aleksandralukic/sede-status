@@ -176,9 +176,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--baseline", action="store_true")
+    ap.add_argument("--watch", action="store_true",
+                    help="only the high-frequency tier (seeds with watch:true)")
     args = ap.parse_args()
 
     seeds = json.load(open(SEEDS, encoding="utf-8"))["sources"]
+    if args.watch:
+        seeds = [s for s in seeds if s.get("watch")]
     if args.only:
         seeds = [s for s in seeds if args.only in s["id"]]
 

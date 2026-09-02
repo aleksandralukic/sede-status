@@ -217,6 +217,7 @@
   .mini button:hover { color: var(--accent); border-color: var(--accent); }
   .meta { text-align: right; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .meta .ms { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--ink-2); }
+  .meta .ficha { display: block; font-size: 12px; margin-top: 3px; }
   .empty { color: var(--muted); padding: 18px 12px; font-size: 14px; display: none; }
 
   /* ---- honesty box ---- */
@@ -351,6 +352,7 @@
 
   var data = JSON.parse(document.getElementById("status-data").textContent);
   var state = { q: "", tags: {}, bucket: null, ca: null };
+  var SEDE_PAGES = false; // build_site.py flips this on the published site
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -494,7 +496,8 @@
         (r.detail ? '<div class="detail">' + esc(r.detail) + "</div>" : "") +
         (tagBtns ? '<div class="mini">' + tagBtns + "</div>" : "") +
       "</div>" +
-      '<div class="meta">' + (r.elapsed_ms ? '<span class="ms">' + r.elapsed_ms + " ms</span>" : "") + "</div>" +
+      '<div class="meta">' + (r.elapsed_ms ? '<span class="ms">' + r.elapsed_ms + " ms</span>" : "") +
+      (SEDE_PAGES ? '<a class="ficha" href="sede/' + esc(r.id) + '/">ver ficha</a>' : "") + "</div>" +
     "</div>";
   }
 
