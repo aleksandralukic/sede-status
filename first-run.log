@@ -1,0 +1,63 @@
+/Users/aleksandravlukic/sede-status/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+  OK        pag-home                 200     407ms  
+  ERROR     pag-sede                 0        85ms  SSLError
+  OK        clave                    200      97ms  
+  OK        fnmt-sede                200     146ms  
+  OK        dni-cita                 200     122ms  
+  OK        extranjeria-cita         200     644ms  
+  OK        extranjeria-info         200     708ms  
+  OK        aeat                     200     193ms  
+  OK        segsocial                200     328ms  
+  OK        imv                      200     207ms  
+  OK        sepe                     200     160ms  
+  OK        sepe-sede                200     196ms  
+  OK        mites                    200     305ms  
+  OK        dgt-sede                 200     270ms  
+  OK        catastro                 200     245ms  
+  OK        mjusticia-sede           200     225ms  
+  OK        oav                      200    1085ms  
+  OK        poderjudicial            200     253ms  
+  OK        justicia-gratuita        200      85ms  
+  OK        educacion-sede           200     115ms  
+  OK        becas                    200     138ms  
+  OK        sanidad                  200     118ms  
+  ERROR     consumo                  0        73ms  SSLError
+  OK        aepd                     200     137ms  
+  OK        defensor                 200    1934ms  
+  OK        ine                      200     216ms  
+  OK        boe                      200      83ms  
+  OK        datos-gob                200     413ms  
+  OK        admin-electronica        200     336ms  
+  OK        sia-info                 200     315ms  
+  OK        igualdad                 200     218ms  
+  OK        violenciagenero          200    3209ms  
+  OK        inmujeres                200     150ms  
+  ERROR     muface                   0       104ms  SSLError
+  OK        aragon-home              200     348ms  
+  OK        aragon-tramites          200     531ms  
+  OK        aragon-iam               200     274ms  
+  OK        aragon-iam-servicios     200     677ms  
+  OK        aragon-iass              200     412ms  
+  OK        inaem                    200     539ms  
+  OK        saludinforma             200     883ms  
+  OK        boa                      200     103ms  
+  OK        zaragoza-home            200     153ms  
+  DEAD      zaragoza-social          404     109ms  http 404
+  DEAD      zaragoza-padron          404     117ms  http 404
+  OK        gencat-dones             200     302ms  
+  OK        emakunde                 200     595ms  
+  OK        madrid-ccaa              200     134ms  
+  OK        andalucia                200     319ms  
+  OK        cruzroja                 200     712ms  
+  OK        caritas                  200     332ms  
+  BLOCKED   cear                     403      97ms  http 403, likely WAF
+  OK        accem                    200     346ms  
+  OK        anar                     200     399ms  
+  OK        esperanza                200     193ms  
+  OK        secretariado-gitano      200     314ms  
+  ERROR     congde                   0       152ms  SSLError
+  OK        plataforma-ong           200     119ms  
+
+OK=51  DEAD=2  BLOCKED=1  ERROR=4
+-> status.json

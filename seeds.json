@@ -56,8 +56,8 @@
     {"id": "boa", "url": "https://www.boa.aragon.es/", "org": "Boletín Oficial de Aragón", "level": "CCAA", "region": "ES-AR", "tags": ["meta-directorio"], "criticality": "medium"},
 
     {"id": "zaragoza-home", "url": "https://www.zaragoza.es/sede/", "org": "Ayuntamiento de Zaragoza", "level": "LOCAL", "region": "ES-AR-Z", "tags": ["meta-directorio", "vecinos-convivencia"], "criticality": "high"},
-    {"id": "zaragoza-social", "url": "https://www.zaragoza.es/ciudad/sectores/social/", "org": "Zaragoza - Acción Social", "level": "LOCAL", "region": "ES-AR-Z", "tags": ["servicios-sociales"], "criticality": "high", "notes": "VERIFY."},
-    {"id": "zaragoza-padron", "url": "https://www.zaragoza.es/ciudad/encasa/padron/", "org": "Zaragoza - Padrón", "level": "LOCAL", "region": "ES-AR-Z", "tags": ["identidad-documentos", "vivienda"], "criticality": "high", "notes": "VERIFY."},
+    {"id": "zaragoza-social", "url": "https://www.zaragoza.es/sede/portal/servicios-sociales/", "org": "Zaragoza - Servicios Sociales", "level": "LOCAL", "region": "ES-AR-Z", "tags": ["servicios-sociales"], "criticality": "high", "notes": "Fixed 2026-09-02: old /ciudad/sectores/social/ 404s. /sede/portal/derechos-sociales/ redirects here too."},
+    {"id": "zaragoza-padron", "url": "https://www.zaragoza.es/sede/servicio/tramite/3317", "org": "Zaragoza - Padrón (altas)", "level": "LOCAL", "region": "ES-AR-Z", "tags": ["identidad-documentos", "vivienda"], "criticality": "high", "notes": "Fixed 2026-09-02: old /ciudad/encasa/padron/ 404s. Trámite 3317 = Padrón: Altas; 3319 = cambio de domicilio. Full catalogue at /sede/servicio/tramite.json (700 trámites, no SIA field)."},
 
     {"id": "gencat-dones", "url": "https://dones.gencat.cat/", "org": "Institut Català de les Dones", "level": "CCAA", "region": "ES-CT", "tags": ["violencia-genero"], "criticality": "medium"},
     {"id": "emakunde", "url": "https://www.emakunde.euskadi.eus/", "org": "Emakunde", "level": "CCAA", "region": "ES-PV", "tags": ["violencia-genero"], "criticality": "medium"},
@@ -66,12 +66,12 @@
 
     {"id": "cruzroja", "url": "https://www2.cruzroja.es/", "org": "Cruz Roja Española", "level": "ONG", "region": "ES", "tags": ["servicios-sociales"], "criticality": "high", "notes": "VERIFY: www2 vs www."},
     {"id": "caritas", "url": "https://www.caritas.es/", "org": "Cáritas Española", "level": "ONG", "region": "ES", "tags": ["servicios-sociales", "vivienda"], "criticality": "high"},
-    {"id": "cear", "url": "https://www.cear.es/", "org": "CEAR", "level": "ONG", "region": "ES", "tags": ["extranjeria"], "criticality": "high"},
+    {"id": "cear", "url": "https://www.cear.es/", "org": "CEAR", "level": "ONG", "region": "ES", "tags": ["extranjeria"], "criticality": "high", "notes": "403s bot UAs (WAF). Expect BLOCKED; show publicly as 'cannot verify', never broken."},
     {"id": "accem", "url": "https://www.accem.es/", "org": "Accem", "level": "ONG", "region": "ES", "tags": ["extranjeria", "servicios-sociales"], "criticality": "high"},
     {"id": "anar", "url": "https://www.anar.org/", "org": "Fundación ANAR", "level": "ONG", "region": "ES", "tags": ["familia-menores"], "criticality": "high", "notes": "016 redirects minors here."},
     {"id": "esperanza", "url": "https://telefonodelaesperanza.org/", "org": "Teléfono de la Esperanza", "level": "ONG", "region": "ES", "tags": ["salud"], "criticality": "high"},
     {"id": "secretariado-gitano", "url": "https://www.gitanos.org/", "org": "Fundación Secretariado Gitano", "level": "ONG", "region": "ES", "tags": ["servicios-sociales", "empleo"], "criticality": "medium"},
-    {"id": "congde", "url": "https://congde.org/", "org": "Coordinadora de ONGD", "level": "ONG", "region": "ES", "tags": ["meta-directorio"], "criticality": "medium", "notes": "Member directory - scaling input for the seed list."},
+    {"id": "congde", "url": "https://congde.org/", "org": "Coordinadora de ONGD", "level": "ONG", "region": "ES", "tags": ["meta-directorio"], "criticality": "medium", "notes": "Member directory - scaling input for the seed list. TLS handshake fails even from curl (2026-09-02) - genuine site-side TLS misconfig, recheck in a week."},
     {"id": "plataforma-ong", "url": "https://www.plataformaong.org/", "org": "Plataforma de ONG de Acción Social", "level": "ONG", "region": "ES", "tags": ["meta-directorio"], "criticality": "medium", "notes": "Member directory - scaling input."}
   ]
 }
