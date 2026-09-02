@@ -1,0 +1,4 @@
+checks.db
+status.json
+__pycache__/
+.venv/
