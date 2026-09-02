@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "note": "Manual observations. Each entry replaces the bot's classification in status.json until 'expires' (the checks DB still records what the bot saw). Use when a human verified something the bot cannot see, e.g. a WAF hides an outage page."
+  },
+  "overrides": [
+    {
+      "id": "justicia-gratuita",
+      "status": "DEAD",
+      "detail": "«la página a la que estás intentando acceder no está disponible» (visto en navegador el 2026-09-02; al robot solo le llega el bloqueo de Incapsula)",
+      "expires": "2026-09-09"
+    }
+  ]
+}

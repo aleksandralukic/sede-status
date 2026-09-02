@@ -18,6 +18,7 @@ import hashlib
 import json
 import re
 import sqlite3
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -28,6 +29,7 @@ import requests
 DB = "checks.db"
 SEEDS = "seeds.json"
 OUT = "status.json"
+OVERRIDES = "overrides.json"
 
 # Politeness: a real UA, and a gap between requests to the same host.
 UA = (
@@ -129,6 +131,37 @@ def classify(seed, resp, base):
     return "OK", ""
 
 
+class CurlResponse:
+    def __init__(self, text, status_code, url):
+        self.text, self.status_code, self.url = text, status_code, url
+
+
+def curl_fetch(url):
+    """macOS system Python links LibreSSL 2.8.3, which can't complete some
+    modern TLS handshakes that the system curl manages fine. Fallback path
+    for SSLError only; a site curl also fails on is genuinely broken."""
+    marker = "===CURLMETA==="
+    p = subprocess.run(
+        ["curl", "-sS", "-L", "--max-time", str(TIMEOUT), "-A", UA,
+         "-H", "Accept-Language: " + HEADERS["Accept-Language"],
+         "-w", marker + "%{http_code}\t%{url_effective}", url],
+        capture_output=True, timeout=TIMEOUT + 10)
+    if p.returncode != 0:
+        raise RuntimeError(f"curl exit {p.returncode}")
+    out = p.stdout.decode("utf-8", "replace")
+    body, _, meta = out.rpartition(marker)
+    code, final = meta.split("\t", 1)
+    return CurlResponse(body, int(code), final)
+
+
+def load_overrides(today):
+    try:
+        entries = json.load(open(OVERRIDES, encoding="utf-8"))["overrides"]
+    except (OSError, ValueError, KeyError):
+        return {}
+    return {o["id"]: o for o in entries if o.get("expires", "9999") >= today}
+
+
 def consecutive_failures(con, sid):
     rows = con.execute(
         "SELECT status FROM checks WHERE id=? ORDER BY checked_at DESC LIMIT ?",
@@ -153,6 +186,7 @@ def main():
     con.row_factory = sqlite3.Row
     schema(con)
     now = datetime.now(timezone.utc).isoformat()
+    overrides = load_overrides(now[:10])
     last_hit, results = {}, []
 
     for seed in seeds:
@@ -177,6 +211,15 @@ def main():
             status, detail = classify(seed, resp, base)
             code, final = resp.status_code, resp.url
             body = resp.text or ""
+        except requests.exceptions.SSLError:
+            try:
+                resp = curl_fetch(seed["url"])
+                status, detail = classify(seed, resp, base)
+                detail = (detail + "; " if detail else "") + "via curl (TLS fallback)"
+                code, final, body = resp.status_code, resp.url, resp.text
+            except Exception as e:
+                status, detail = "ERROR", f"SSLError ({e})"
+                code, final, body = 0, seed["url"], ""
         except requests.RequestException as e:
             status, detail = "ERROR", type(e).__name__
             code, final, body = 0, seed["url"], ""
@@ -201,6 +244,15 @@ def main():
 
         fails = consecutive_failures(con, seed["id"])
         alert = not args.baseline and fails >= FAILURES_BEFORE_ALERT
+
+        # A manual observation trumps the bot for the public output only;
+        # the checks table above keeps what the bot actually saw.
+        ov = overrides.get(seed["id"])
+        if ov:
+            status = ov["status"]
+            detail = "Comprobado manualmente: " + ov["detail"]
+            alert = status in ("DEAD", "SOFT_404")
+
         results.append({**seed, "status": status, "http": code, "detail": detail,
                         "final_url": final, "elapsed_ms": elapsed,
                         "checked_at": now, "alert": alert})
