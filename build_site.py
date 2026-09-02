@@ -249,6 +249,9 @@ def main():
         r = by_id.get(seed["id"])
         if not r:
             continue
+        # seeds.json wins for content (org, desc, ask); status.json only
+        # contributes the check results, which may predate a seed edit.
+        r = {**r, **seed}
         d = os.path.join(OUT, "sede", seed["id"])
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(page(r, con))
