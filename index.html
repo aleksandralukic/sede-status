@@ -143,6 +143,11 @@
   }
   .search::placeholder { color: var(--muted); }
   .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chips-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin: 14px 0 6px;
+  }
+  .search + .chips-label { margin-top: 2px; }
   .chip {
     font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 99px;
     border: 1px solid var(--hairline); background: var(--surface);
@@ -260,7 +265,10 @@
 
   <div class="filters">
     <input class="search" id="search" type="search" placeholder="Buscar organismo, trámite o dominio…" aria-label="Buscar">
+    <p class="chips-label">Temas</p>
     <div class="chips" id="chips"></div>
+    <p class="chips-label">Tu comunidad</p>
+    <div class="chips" id="ca-chips"></div>
   </div>
 
   <main id="sections"></main>
@@ -292,7 +300,7 @@
   "use strict";
 
   var STATUS = {
-    OK:       { label: "Operativa",              cls: "ok",      sev: 5 },
+    OK:       { label: "Accesible",              cls: "ok",      sev: 5 },
     DEAD:     { label: "Caída",                  cls: "bad",     sev: 0 },
     SOFT_404: { label: "Contenido desaparecido", cls: "bad",     sev: 1 },
     MOVED:    { label: "Ha cambiado de sitio",   cls: "warn",    sev: 2 },
@@ -319,9 +327,18 @@
     "ES": "España", "ES-AR": "Aragón", "ES-AR-Z": "Zaragoza", "ES-CT": "Cataluña",
     "ES-PV": "País Vasco", "ES-MD": "Madrid", "ES-AN": "Andalucía"
   };
+  var CCAA_NAMES = {
+    "ES-AR": "Aragón", "ES-CT": "Cataluña", "ES-PV": "País Vasco",
+    "ES-MD": "Comunidad de Madrid", "ES-AN": "Andalucía"
+  };
+  function caOf(region) {
+    if (!region || region === "ES") return null;
+    var p = region.split("-");
+    return p.length >= 2 ? p[0] + "-" + p[1] : null;
+  }
   // Tile buckets: DEAD and SOFT_404 read together as "down".
   var BUCKETS = [
-    { key: "ok",      label: "Operativas",         cls: "ok",      match: ["OK"] },
+    { key: "ok",      label: "Accesibles",         cls: "ok",      match: ["OK"] },
     { key: "down",    label: "Caídas",             cls: "bad",     match: ["DEAD", "SOFT_404"] },
     { key: "moved",   label: "Cambiadas de sitio", cls: "warn",    match: ["MOVED"] },
     { key: "err",     label: "Error de conexión",  cls: "err",     match: ["ERROR"] },
@@ -333,7 +350,7 @@
   };
 
   var data = JSON.parse(document.getElementById("status-data").textContent);
-  var state = { q: "", tags: {}, bucket: null };
+  var state = { q: "", tags: {}, bucket: null, ca: null };
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -347,6 +364,7 @@
   }
   function matches(r) {
     if (state.bucket && bucketOf(r.status) !== state.bucket) return false;
+    if (state.ca && caOf(r.region) !== state.ca) return false;
     var active = Object.keys(state.tags);
     if (active.length) {
       var hit = (r.tags || []).some(function (t) { return state.tags[t]; });
@@ -354,6 +372,7 @@
     }
     if (state.q) {
       var hay = (r.org + " " + r.id + " " + r.url + " " +
+        (REGIONS[r.region] || "") + " " + (CCAA_NAMES[caOf(r.region)] || "") + " " +
         (r.tags || []).map(function (t) { return TAGS[t] || t; }).join(" ")).toLowerCase();
       if (hay.indexOf(state.q) === -1) return false;
     }
@@ -417,18 +436,39 @@
       c.addEventListener("click", function () { toggleTag(t); });
       box.appendChild(c);
     });
-    var any = Object.keys(state.tags).length || state.bucket || state.q;
+    var cbox = document.getElementById("ca-chips");
+    cbox.innerHTML = "";
+    var caCounts = {};
+    data.results.forEach(function (r) {
+      var ca = caOf(r.region);
+      if (ca) caCounts[ca] = (caCounts[ca] || 0) + 1;
+    });
+    Object.keys(CCAA_NAMES).forEach(function (ca) {
+      if (!caCounts[ca]) return;
+      var c = document.createElement("button");
+      c.className = "chip"; c.type = "button";
+      c.setAttribute("aria-pressed", state.ca === ca ? "true" : "false");
+      c.innerHTML = esc(CCAA_NAMES[ca]) + ' <span class="c">' + caCounts[ca] + "</span>";
+      c.addEventListener("click", function () { toggleCa(ca); });
+      cbox.appendChild(c);
+    });
+
+    var any = Object.keys(state.tags).length || state.bucket || state.q || state.ca;
     if (any) {
       var clear = document.createElement("button");
       clear.className = "chip clear"; clear.type = "button";
       clear.textContent = "Limpiar filtros";
       clear.addEventListener("click", function () {
-        state.tags = {}; state.bucket = null; state.q = "";
+        state.tags = {}; state.bucket = null; state.q = ""; state.ca = null;
         document.getElementById("search").value = "";
         renderSummary(); renderChips(); renderSections();
       });
-      box.appendChild(clear);
+      cbox.appendChild(clear);
     }
+  }
+  function toggleCa(ca) {
+    state.ca = state.ca === ca ? null : ca;
+    renderChips(); renderSections();
   }
   function toggleTag(t) {
     if (state.tags[t]) delete state.tags[t]; else state.tags[t] = true;
@@ -443,7 +483,7 @@
       return '<button type="button" data-tag="' + esc(t) + '">' + esc(TAGS[t] || t) + "</button>";
     }).join("");
     if (r.region !== "ES" && r.level !== "LOCAL")
-      tagBtns = '<button type="button" disabled style="cursor:default">' +
+      tagBtns = '<button type="button" data-ca="' + esc(caOf(r.region) || "") + '">' +
         esc(region) + "</button>" + tagBtns;
     return '<div class="row' + (r.alert ? " alert " + s.cls : "") + '">' +
       '<span class="pill ' + s.cls + '"><span class="dot ' + s.cls + '"></span>' + s.label + "</span>" +
@@ -477,7 +517,7 @@
       if (g[2]) sec.className = "featured";
       var badge = g[2] ? ' <span class="sec-badge">a fondo</span>' : "";
       sec.innerHTML = '<div class="sec-head"><h2>' + esc(g[1]) + badge + '</h2>' +
-        '<span class="tally">' + ok + " de " + all.length + " operativas</span></div>" +
+        '<span class="tally">' + ok + " de " + all.length + " accesibles</span></div>" +
         '<div class="rows">' + shown.map(rowHTML).join("") + "</div>";
       main.appendChild(sec);
     });
@@ -486,6 +526,9 @@
     }
     main.querySelectorAll(".mini button[data-tag]").forEach(function (b) {
       b.addEventListener("click", function () { toggleTag(b.dataset.tag); });
+    });
+    main.querySelectorAll(".mini button[data-ca]").forEach(function (b) {
+      b.addEventListener("click", function () { if (b.dataset.ca) toggleCa(b.dataset.ca); });
     });
   }
 
