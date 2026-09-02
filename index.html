@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<title>¿Está caída la sede?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f2f5f7;
+    --surface: #fcfdfe;
+    --surface-2: #eef2f5;
+    --ink: #111820;
+    --ink-2: #4b5763;
+    --muted: #84909b;
+    --hairline: #dfe6ec;
+    --accent: #14508c;
+    --accent-soft: #e3edf7;
+    --good: #0ca30c;
+    --warn: #fab219;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --good-bg: rgba(12,163,12,.10);
+    --warn-bg: rgba(250,178,25,.14);
+    --serious-bg: rgba(236,131,90,.13);
+    --critical-bg: rgba(208,59,59,.10);
+    --neutral-bg: rgba(132,144,155,.13);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #0d1116;
+      --surface: #151b22;
+      --surface-2: #1b232c;
+      --ink: #edf1f5;
+      --ink-2: #a9b4bf;
+      --muted: #78838e;
+      --hairline: #27303a;
+      --accent: #7fb1e8;
+      --accent-soft: #182a3d;
+      --good-bg: rgba(12,163,12,.16);
+      --warn-bg: rgba(250,178,25,.14);
+      --serious-bg: rgba(236,131,90,.15);
+      --critical-bg: rgba(208,59,59,.18);
+      --neutral-bg: rgba(132,144,155,.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d1116;
+    --surface: #151b22;
+    --surface-2: #1b232c;
+    --ink: #edf1f5;
+    --ink-2: #a9b4bf;
+    --muted: #78838e;
+    --hairline: #27303a;
+    --accent: #7fb1e8;
+    --accent-soft: #182a3d;
+    --good-bg: rgba(12,163,12,.16);
+    --warn-bg: rgba(250,178,25,.14);
+    --serious-bg: rgba(236,131,90,.15);
+    --critical-bg: rgba(208,59,59,.18);
+    --neutral-bg: rgba(132,144,155,.16);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 40px 24px 64px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, "SF Mono", monospace; }
+
+  /* ---- masthead ---- */
+  .mast {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap; margin-bottom: 36px;
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-2); margin: 0 0 10px; font-weight: 600;
+  }
+  h1 {
+    font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.05;
+    margin: 0 0 14px; letter-spacing: -.01em; text-wrap: balance;
+  }
+  .lede { max-width: 56ch; color: var(--ink-2); margin: 0; }
+  .stamp {
+    border: 3px double var(--accent); color: var(--accent);
+    padding: 12px 16px; min-width: 240px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; line-height: 1.7; letter-spacing: .04em;
+    transform: rotate(-1.2deg); background: var(--surface);
+  }
+  .stamp b { font-size: 11px; letter-spacing: .14em; display: block; border-bottom: 1px solid var(--accent); padding-bottom: 4px; margin-bottom: 6px; }
+  .stamp .num { font-variant-numeric: tabular-nums; }
+
+  /* ---- summary ---- */
+  .strip {
+    display: flex; gap: 2px; height: 14px; border-radius: 4px; overflow: hidden;
+    margin-bottom: 14px; background: var(--surface-2);
+  }
+  .strip span { display: block; height: 100%; min-width: 4px; }
+  .tiles { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
+  .tile {
+    display: flex; align-items: baseline; gap: 9px;
+    border: 1px solid var(--hairline); background: var(--surface);
+    padding: 9px 14px; border-radius: 6px; cursor: pointer;
+    font: inherit; color: var(--ink); text-align: left;
+  }
+  .tile .dot { align-self: center; }
+  .tile .n { font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .tile .l { font-size: 13px; color: var(--ink-2); }
+  .tile[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+  .tile:hover { border-color: var(--muted); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
+  .dot.ok { background: var(--good); }
+  .dot.bad { background: var(--critical); }
+  .dot.warn { background: var(--warn); }
+  .dot.err { background: var(--serious); }
+  .dot.neutral { background: var(--muted); }
+
+  /* ---- filters ---- */
+  .filters { margin-bottom: 30px; }
+  .search {
+    width: 100%; max-width: 420px; padding: 9px 13px; margin-bottom: 14px;
+    border: 1px solid var(--hairline); border-radius: 6px;
+    background: var(--surface); color: var(--ink); font: inherit;
+  }
+  .search::placeholder { color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 99px;
+    border: 1px solid var(--hairline); background: var(--surface);
+    color: var(--ink-2); cursor: pointer;
+  }
+  .chip:hover { border-color: var(--muted); color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+  .chip.clear { border-style: dashed; }
+  .chip .c { font-size: 11px; opacity: .75; font-variant-numeric: tabular-nums; }
+
+  /* ---- sections ---- */
+  section { margin-bottom: 38px; }
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    border-bottom: 2px solid var(--ink); padding-bottom: 7px; margin-bottom: 4px;
+  }
+  .sec-head h2 { font-size: 17px; margin: 0; letter-spacing: .01em; }
+  .sec-head .tally { font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .rows { display: flex; flex-direction: column; }
+  .row {
+    display: grid; grid-template-columns: 168px 1fr auto; gap: 8px 18px;
+    align-items: center; padding: 11px 10px 11px 12px;
+    border-bottom: 1px solid var(--hairline); border-left: 3px solid transparent;
+  }
+  .row.alert { border-left-color: var(--critical); background: var(--critical-bg); }
+  .row.alert.err { border-left-color: var(--serious); background: var(--serious-bg); }
+  .row:hover { background: var(--surface); }
+  .row.alert:hover { background: var(--critical-bg); }
+  .row.alert.err:hover { background: var(--serious-bg); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px; padding: 3px 10px;
+    border-radius: 99px; font-size: 12.5px; font-weight: 600; white-space: nowrap;
+    justify-self: start;
+  }
+  .pill.ok { background: var(--good-bg); }
+  .pill.bad { background: var(--critical-bg); }
+  .pill.warn { background: var(--warn-bg); }
+  .pill.err { background: var(--serious-bg); }
+  .pill.neutral { background: var(--neutral-bg); }
+  .who { min-width: 0; }
+  .who .org { font-weight: 600; }
+  .who .org a { color: inherit; text-decoration: none; }
+  .who .org a:hover { color: var(--accent); text-decoration: underline; }
+  .who .url {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
+    color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .who .detail { font-size: 12.5px; color: var(--ink-2); margin-top: 2px; }
+  .who .mini { display: inline-flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+  .mini button {
+    font: inherit; font-size: 11px; padding: 1px 8px; border-radius: 99px;
+    border: 1px solid var(--hairline); background: none; color: var(--muted); cursor: pointer;
+  }
+  .mini button:hover { color: var(--accent); border-color: var(--accent); }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .meta .ms { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--ink-2); }
+  .empty { color: var(--muted); padding: 18px 12px; font-size: 14px; display: none; }
+
+  /* ---- honesty box ---- */
+  .honesty {
+    border: 1px solid var(--hairline); border-radius: 8px; background: var(--surface);
+    padding: 20px 24px; margin-top: 14px;
+  }
+  .honesty h3 { margin: 0 0 10px; font-size: 15px; }
+  .honesty p { margin: 0 0 8px; font-size: 13.5px; color: var(--ink-2); max-width: 78ch; }
+  .honesty p:last-child { margin-bottom: 0; }
+  .honesty .k { font-weight: 600; color: var(--ink); }
+  footer.colophon { margin-top: 28px; font-size: 12.5px; color: var(--muted); }
+
+  button:focus-visible, input:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; gap: 5px; }
+    .meta { text-align: left; }
+    .stamp { transform: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .chip, .tile { transition: background .12s, border-color .12s, color .12s; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <p class="eyebrow">Monitor independiente · no afiliado a la administración</p>
+      <h1>¿Está caída la sede?</h1>
+      <p class="lede">Comprobamos con peticiones reales los enlaces oficiales que más se buscan
+      — sedes electrónicas, trámites y entidades de ayuda en España — y te decimos
+      cuáles responden y cuáles no. Sin cuentas, sin rastreo, solo enlaces verificados.</p>
+    </div>
+    <div class="stamp" role="note" aria-label="Última comprobación">
+      <b>REGISTRO DE COMPROBACIÓN</b>
+      <span id="stamp-date" class="num">—</span><br>
+      <span id="stamp-count" class="num">—</span> enlaces comprobados<br>
+      <span id="stamp-ago" class="num"></span>
+    </div>
+  </header>
+
+  <div class="strip" id="strip" role="img" aria-label="Proporción de enlaces por estado"></div>
+  <div class="tiles" id="tiles"></div>
+
+  <div class="filters">
+    <input class="search" id="search" type="search" placeholder="Buscar organismo, trámite o dominio…" aria-label="Buscar">
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <main id="sections"></main>
+
+  <div class="honesty">
+    <h3>Lo que este monitor dice — y lo que no</h3>
+    <p><span class="k">Mostramos hechos con fecha y hora</span>: si un enlace respondió, si su
+    contenido desapareció bajo un «200 OK», o si ahora redirige a otro sitio. Nunca damos
+    consejos ni interpretamos trámites.</p>
+    <p><span class="k">«No verificable» no significa caída.</span> Algunos sitios bloquean a los
+    robots de monitorización (cortafuegos, captchas). Eso nos bloquea a nosotros; a ti,
+    probablemente no.</p>
+    <p><span class="k">«Error de conexión» puede ser cosa nuestra.</span> Un fallo de red o de
+    certificado en una sola comprobación no prueba nada: solo señalamos un problema tras
+    tres comprobaciones fallidas consecutivas.</p>
+    <p><span class="k">Comprobamos con respeto</span>: una petición por sitio, identificándonos
+    con un contacto real y siguiendo las normas de cada servidor.</p>
+  </div>
+
+  <footer class="colophon">
+    Proyecto en fase 1 · Los enlaces llevan siempre al sitio oficial correspondiente ·
+    Este sitio no guarda datos personales
+  </footer>
+</div>
+
+<script id="status-data" type="application/json">{"generated_at":"2026-09-02T16:57:11.909816+00:00","results":[{"id":"pag-home","url":"https://administracion.gob.es/","org":"Punto de Acceso General","level":"AGE","region":"ES","tags":["meta-directorio"],"criticality":"high","notes":"The incumbent. Baseline for the whole project.","status":"OK","http":200,"detail":"","final_url":"https://administracion.gob.es/","elapsed_ms":633,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"pag-sede","url":"https://sede.administracion.gob.es/","org":"Sede PAG","level":"AGE","region":"ES","tags":["meta-directorio"],"criticality":"high","status":"ERROR","http":0,"detail":"SSLError","final_url":"https://sede.administracion.gob.es/","elapsed_ms":56,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":true},{"id":"clave","url":"https://clave.gob.es/clave_Home/clave.html","org":"Cl@ve","level":"AGE","region":"ES","tags":["identidad-documentos"],"criticality":"high","notes":"Gateway for nearly every other trámite.","status":"OK","http":200,"detail":"","final_url":"https://clave.gob.es/clave","elapsed_ms":144,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"fnmt-sede","url":"https://www.sede.fnmt.gob.es/","org":"FNMT-RCM","level":"AGE","region":"ES","tags":["identidad-documentos"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.sede.fnmt.gob.es/","elapsed_ms":157,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"dni-cita","url":"https://www.citapreviadnie.es/citaPreviaDni/Inicio.action","org":"Policía Nacional","level":"AGE","region":"ES","tags":["identidad-documentos"],"criticality":"high","notes":"Notoriously flaky. Good stress case.","status":"OK","http":200,"detail":"","final_url":"https://www.citapreviadnie.es/citaPreviaDni/Inicio.action","elapsed_ms":131,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"extranjeria-cita","url":"https://sede.administracionespublicas.gob.es/","org":"Sede Administraciones Públicas","level":"AGE","region":"ES","tags":["extranjeria","identidad-documentos"],"criticality":"high","notes":"Cita previa extranjería. Breaks constantly, thousands depend on it.","status":"OK","http":200,"detail":"","final_url":"https://sede.administracionespublicas.gob.es/","elapsed_ms":620,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"extranjeria-info","url":"https://www.inclusion.gob.es/web/migraciones/inicio","org":"Secretaría de Estado de Migraciones","level":"AGE","region":"ES","tags":["extranjeria"],"criticality":"high","notes":"VERIFY: path has moved before.","status":"OK","http":200,"detail":"","final_url":"https://www.inclusion.gob.es/web/migraciones/home","elapsed_ms":552,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"aeat","url":"https://sede.agenciatributaria.gob.es/","org":"Agencia Tributaria","level":"AGE","region":"ES","tags":["impuestos"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://sede.agenciatributaria.gob.es/","elapsed_ms":155,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"segsocial","url":"https://sede.seg-social.gob.es/","org":"Seguridad Social","level":"AGE","region":"ES","tags":["prestaciones","empleo","salud"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio","elapsed_ms":210,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"imv","url":"https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8d06-4645-bde7-05374ee42ac7","org":"Seguridad Social - IMV","level":"AGE","region":"ES","tags":["prestaciones"],"criticality":"high","notes":"VERIFY: long portal URL, high rot risk. Exactly the kind this project exists for.","status":"OK","http":200,"detail":"","final_url":"https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8d06-4645-bde7-05374ee42ac7","elapsed_ms":237,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"sepe","url":"https://www.sepe.es/","org":"SEPE","level":"AGE","region":"ES","tags":["empleo","prestaciones"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.sepe.es/HomeSepe","elapsed_ms":205,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"sepe-sede","url":"https://sede.sepe.gob.es/","org":"SEPE sede","level":"AGE","region":"ES","tags":["empleo","prestaciones"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://sede.sepe.gob.es/portalSede","elapsed_ms":208,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"mites","url":"https://www.mites.gob.es/","org":"Ministerio de Trabajo","level":"AGE","region":"ES","tags":["empleo"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.mites.gob.es/","elapsed_ms":197,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"dgt-sede","url":"https://sede.dgt.gob.es/","org":"DGT","level":"AGE","region":"ES","tags":["trafico"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://sede.dgt.gob.es/es/","elapsed_ms":261,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"catastro","url":"https://www.sedecatastro.gob.es/","org":"Catastro","level":"AGE","region":"ES","tags":["vivienda","impuestos"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.sedecatastro.gob.es/","elapsed_ms":221,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"mjusticia-sede","url":"https://sede.mjusticia.gob.es/","org":"Ministerio de Justicia","level":"AGE","region":"ES","tags":["justicia","familia-menores","identidad-documentos"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://sede.mjusticia.gob.es/","elapsed_ms":220,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"oav","url":"https://www.mjusticia.gob.es/es/ciudadania/victimas","org":"Oficinas de Asistencia a las Víctimas","level":"AGE","region":"ES","tags":["justicia","violencia-genero"],"criticality":"high","notes":"VERIFY. Referral target for male victims and non-partner violence.","status":"OK","http":200,"detail":"","final_url":"https://www.mjusticia.gob.es/es/ciudadania/victimas","elapsed_ms":1068,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"poderjudicial","url":"https://www.poderjudicial.es/","org":"CGPJ","level":"AGE","region":"ES","tags":["justicia"],"criticality":"low","status":"OK","http":200,"detail":"","final_url":"https://www.poderjudicial.es/cgpj/","elapsed_ms":437,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"justicia-gratuita","url":"https://www.abogacia.es/servicios-abogacia/justicia-gratuita/","org":"Abogacía Española","level":"ONG","region":"ES","tags":["justicia"],"criticality":"high","notes":"Legal aid. VERIFY path.","status":"BLOCKED","http":200,"detail":"http 200, likely WAF","final_url":"https://www.abogacia.es/servicios-abogacia/justicia-gratuita/","elapsed_ms":124,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"educacion-sede","url":"https://sede.educacion.gob.es/portada.html","org":"Ministerio de Educación","level":"AGE","region":"ES","tags":["educacion"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://sede.educacion.gob.es/portada.html","elapsed_ms":102,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"becas","url":"https://www.becaseducacion.gob.es/","org":"Becas MEFP","level":"AGE","region":"ES","tags":["educacion","prestaciones"],"criticality":"high","notes":"VERIFY domain.","status":"OK","http":200,"detail":"","final_url":"https://www.becaseducacion.gob.es/portada.html","elapsed_ms":122,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"sanidad","url":"https://www.sanidad.gob.es/","org":"Ministerio de Sanidad","level":"AGE","region":"ES","tags":["salud"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.sanidad.gob.es/","elapsed_ms":1438,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"consumo","url":"https://www.consumo.gob.es/","org":"Ministerio de Consumo","level":"AGE","region":"ES","tags":["consumo"],"criticality":"medium","status":"ERROR","http":0,"detail":"SSLError","final_url":"https://www.consumo.gob.es/","elapsed_ms":43,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":true},{"id":"aepd","url":"https://www.aepd.es/","org":"AEPD","level":"AGE","region":"ES","tags":["datos-personales"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.aepd.es/","elapsed_ms":120,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"defensor","url":"https://www.defensordelpueblo.es/","org":"Defensor del Pueblo","level":"AGE","region":"ES","tags":["justicia"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.defensordelpueblo.es/","elapsed_ms":1945,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"ine","url":"https://www.ine.es/","org":"INE","level":"AGE","region":"ES","tags":["meta-directorio"],"criticality":"low","status":"OK","http":200,"detail":"","final_url":"https://www.ine.es/","elapsed_ms":186,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"boe","url":"https://www.boe.es/","org":"BOE","level":"AGE","region":"ES","tags":["meta-directorio"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.boe.es/","elapsed_ms":115,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"datos-gob","url":"https://datos.gob.es/","org":"datos.gob.es","level":"AGE","region":"ES","tags":["datos-abiertos"],"criticality":"high","notes":"Phase 2 input. Check for a SIA dataset here.","status":"OK","http":200,"detail":"","final_url":"https://datos.gob.es/es/","elapsed_ms":538,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"admin-electronica","url":"https://administracionelectronica.gob.es/","org":"PAe","level":"AGE","region":"ES","tags":["datos-abiertos"],"criticality":"high","notes":"Where SIA/DIR3 docs live. Currently returns a WAF rejection to some clients - perfect BLOCKED test case.","status":"OK","http":200,"detail":"","final_url":"https://administracionelectronica.gob.es/","elapsed_ms":265,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"sia-info","url":"https://administracion.gob.es/pag_Home/espanaAdmon/SIA.html","org":"SIA","level":"AGE","region":"ES","tags":["datos-abiertos"],"criticality":"high","notes":"Phase 2 spike starts here.","status":"OK","http":200,"detail":"","final_url":"https://administracion.gob.es/pag_Home/espanaAdmon/SIA.html","elapsed_ms":276,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"igualdad","url":"https://www.igualdad.gob.es/","org":"Ministerio de Igualdad","level":"AGE","region":"ES","tags":["violencia-genero"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.igualdad.gob.es/","elapsed_ms":119,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"violenciagenero","url":"https://violenciagenero.igualdad.gob.es/","org":"Delegación del Gobierno contra la Violencia de Género","level":"AGE","region":"ES","tags":["violencia-genero"],"criticality":"high","notes":"016 chat lives here. Highest-stakes link in the set.","status":"OK","http":200,"detail":"","final_url":"https://violenciagenero.igualdad.gob.es/","elapsed_ms":3396,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"inmujeres","url":"https://www.inmujeres.gob.es/","org":"Instituto de las Mujeres","level":"AGE","region":"ES","tags":["violencia-genero"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.inmujeres.gob.es/","elapsed_ms":1668,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"muface","url":"https://www.muface.es/","org":"MUFACE","level":"AGE","region":"ES","tags":["salud","prestaciones"],"criticality":"low","status":"ERROR","http":0,"detail":"SSLError","final_url":"https://www.muface.es/","elapsed_ms":83,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":true},{"id":"aragon-home","url":"https://www.aragon.es/","org":"Gobierno de Aragón","level":"CCAA","region":"ES-AR","tags":["meta-directorio"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.aragon.es/","elapsed_ms":311,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"aragon-tramites","url":"https://www.aragon.es/tramites","org":"Gobierno de Aragón - Trámites","level":"CCAA","region":"ES-AR","tags":["meta-directorio"],"criticality":"high","notes":"VERIFY.","status":"OK","http":200,"detail":"","final_url":"https://www.aragon.es/tramites","elapsed_ms":508,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"aragon-iam","url":"https://www.aragon.es/gobierno/iam","org":"Instituto Aragonés de la Mujer","level":"CCAA","region":"ES-AR","tags":["violencia-genero"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.aragon.es/gobierno/iam","elapsed_ms":359,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"aragon-iam-servicios","url":"https://www.aragon.es/-/servicios-y-asesorias-instituto-aragones-de-la-mujer","org":"IAM - Servicios","level":"CCAA","region":"ES-AR","tags":["violencia-genero"],"criticality":"high","notes":"The '/-/' slug pattern on aragon.es is very rot-prone.","status":"OK","http":200,"detail":"","final_url":"https://www.aragon.es/-/servicios-y-asesorias-instituto-aragones-de-la-mujer","elapsed_ms":450,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"aragon-iass","url":"https://www.aragon.es/organismos/departamento-de-bienestar-social-y-familia/instituto-aragones-de-servicios-sociales","org":"IASS","level":"CCAA","region":"ES-AR","tags":["servicios-sociales","familia-menores"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.aragon.es/gobierno/iass","elapsed_ms":392,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"inaem","url":"https://inaem.aragon.es/","org":"INAEM Aragón","level":"CCAA","region":"ES-AR","tags":["empleo"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://inaem.aragon.es/","elapsed_ms":527,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"saludinforma","url":"https://www.saludinforma.es/","org":"Salud Informa Aragón","level":"CCAA","region":"ES-AR","tags":["salud"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.saludinforma.es/portalsi/web/salud/inicio","elapsed_ms":1723,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"boa","url":"https://www.boa.aragon.es/","org":"Boletín Oficial de Aragón","level":"CCAA","region":"ES-AR","tags":["meta-directorio"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.boa.aragon.es/","elapsed_ms":67,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"zaragoza-home","url":"https://www.zaragoza.es/sede/","org":"Ayuntamiento de Zaragoza","level":"LOCAL","region":"ES-AR-Z","tags":["meta-directorio","vecinos-convivencia"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.zaragoza.es/sede/","elapsed_ms":150,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"zaragoza-social","url":"https://www.zaragoza.es/sede/portal/servicios-sociales/","org":"Zaragoza - Servicios Sociales","level":"LOCAL","region":"ES-AR-Z","tags":["servicios-sociales"],"criticality":"high","notes":"Fixed 2026-09-02: old /ciudad/sectores/social/ 404s. /sede/portal/derechos-sociales/ redirects here too.","status":"OK","http":200,"detail":"","final_url":"https://www.zaragoza.es/sede/portal/servicios-sociales/","elapsed_ms":158,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"zaragoza-padron","url":"https://www.zaragoza.es/sede/servicio/tramite/3317","org":"Zaragoza - Padrón (altas)","level":"LOCAL","region":"ES-AR-Z","tags":["identidad-documentos","vivienda"],"criticality":"high","notes":"Fixed 2026-09-02: old /ciudad/encasa/padron/ 404s. Trámite 3317 = Padrón: Altas; 3319 = cambio de domicilio. Full catalogue at /sede/servicio/tramite.json (700 trámites, no SIA field).","status":"OK","http":200,"detail":"","final_url":"https://www.zaragoza.es/sede/servicio/tramite/3317","elapsed_ms":714,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"gencat-dones","url":"https://dones.gencat.cat/","org":"Institut Català de les Dones","level":"CCAA","region":"ES-CT","tags":["violencia-genero"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://dones.gencat.cat/ca/inici","elapsed_ms":259,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"emakunde","url":"https://www.emakunde.euskadi.eus/","org":"Emakunde","level":"CCAA","region":"ES-PV","tags":["violencia-genero"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.emakunde.euskadi.eus/hasiera/","elapsed_ms":498,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"madrid-ccaa","url":"https://www.comunidad.madrid/","org":"Comunidad de Madrid","level":"CCAA","region":"ES-MD","tags":["meta-directorio"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.comunidad.madrid/","elapsed_ms":95,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"andalucia","url":"https://www.juntadeandalucia.es/","org":"Junta de Andalucía","level":"CCAA","region":"ES-AN","tags":["meta-directorio"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.juntadeandalucia.es/","elapsed_ms":259,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"cruzroja","url":"https://www2.cruzroja.es/","org":"Cruz Roja Española","level":"ONG","region":"ES","tags":["servicios-sociales"],"criticality":"high","notes":"VERIFY: www2 vs www.","status":"OK","http":200,"detail":"","final_url":"https://www2.cruzroja.es/","elapsed_ms":959,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"caritas","url":"https://www.caritas.es/","org":"Cáritas Española","level":"ONG","region":"ES","tags":["servicios-sociales","vivienda"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.caritas.es/","elapsed_ms":1544,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"cear","url":"https://www.cear.es/","org":"CEAR","level":"ONG","region":"ES","tags":["extranjeria"],"criticality":"high","notes":"403s bot UAs (WAF). Expect BLOCKED; show publicly as 'cannot verify', never broken.","status":"BLOCKED","http":403,"detail":"http 403, likely WAF","final_url":"https://www.cear.es/","elapsed_ms":95,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"accem","url":"https://www.accem.es/","org":"Accem","level":"ONG","region":"ES","tags":["extranjeria","servicios-sociales"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://www.accem.es/","elapsed_ms":336,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"anar","url":"https://www.anar.org/","org":"Fundación ANAR","level":"ONG","region":"ES","tags":["familia-menores"],"criticality":"high","notes":"016 redirects minors here.","status":"OK","http":200,"detail":"","final_url":"https://www.anar.org/","elapsed_ms":231,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"esperanza","url":"https://telefonodelaesperanza.org/","org":"Teléfono de la Esperanza","level":"ONG","region":"ES","tags":["salud"],"criticality":"high","status":"OK","http":200,"detail":"","final_url":"https://telefonodelaesperanza.org/","elapsed_ms":209,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"secretariado-gitano","url":"https://www.gitanos.org/","org":"Fundación Secretariado Gitano","level":"ONG","region":"ES","tags":["servicios-sociales","empleo"],"criticality":"medium","status":"OK","http":200,"detail":"","final_url":"https://www.gitanos.org/","elapsed_ms":257,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false},{"id":"congde","url":"https://congde.org/","org":"Coordinadora de ONGD","level":"ONG","region":"ES","tags":["meta-directorio"],"criticality":"medium","notes":"Member directory - scaling input for the seed list. TLS handshake fails even from curl (2026-09-02) - genuine site-side TLS misconfig, recheck in a week.","status":"ERROR","http":0,"detail":"SSLError","final_url":"https://congde.org/","elapsed_ms":80,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":true},{"id":"plataforma-ong","url":"https://www.plataformaong.org/","org":"Plataforma de ONG de Acción Social","level":"ONG","region":"ES","tags":["meta-directorio"],"criticality":"medium","notes":"Member directory - scaling input.","status":"OK","http":200,"detail":"","final_url":"https://www.plataformaong.org/","elapsed_ms":156,"checked_at":"2026-09-02T16:57:11.909816+00:00","alert":false}]}</script>
+<script>
+(function () {
+  "use strict";
+
+  var STATUS = {
+    OK:       { label: "Operativa",              cls: "ok",      sev: 5 },
+    DEAD:     { label: "Caída",                  cls: "bad",     sev: 0 },
+    SOFT_404: { label: "Contenido desaparecido", cls: "bad",     sev: 1 },
+    MOVED:    { label: "Ha cambiado de sitio",   cls: "warn",    sev: 2 },
+    ERROR:    { label: "Error de conexión",      cls: "err",     sev: 3 },
+    BLOCKED:  { label: "No verificable",         cls: "neutral", sev: 4 }
+  };
+  var GROUPS = [
+    ["AGE",   "Administración General del Estado"],
+    ["CCAA",  "Comunidades autónomas"],
+    ["LOCAL", "Administración local"],
+    ["ONG",   "Entidades sociales y ONG"]
+  ];
+  var TAGS = {
+    "identidad-documentos": "DNI y documentos", "extranjeria": "Extranjería",
+    "empleo": "Empleo", "prestaciones": "Prestaciones y ayudas", "vivienda": "Vivienda",
+    "impuestos": "Impuestos", "trafico": "Tráfico", "salud": "Salud",
+    "educacion": "Educación", "familia-menores": "Familia y menores",
+    "violencia-genero": "Violencia de género", "justicia": "Justicia",
+    "consumo": "Consumo", "datos-personales": "Datos personales",
+    "vecinos-convivencia": "Vecinos y convivencia", "servicios-sociales": "Servicios sociales",
+    "meta-directorio": "Directorios", "datos-abiertos": "Datos abiertos"
+  };
+  var REGIONS = {
+    "ES": "España", "ES-AR": "Aragón", "ES-AR-Z": "Zaragoza", "ES-CT": "Cataluña",
+    "ES-PV": "País Vasco", "ES-MD": "Madrid", "ES-AN": "Andalucía"
+  };
+  // Tile buckets: DEAD and SOFT_404 read together as "down".
+  var BUCKETS = [
+    { key: "ok",      label: "Operativas",         cls: "ok",      match: ["OK"] },
+    { key: "down",    label: "Caídas",             cls: "bad",     match: ["DEAD", "SOFT_404"] },
+    { key: "moved",   label: "Cambiadas de sitio", cls: "warn",    match: ["MOVED"] },
+    { key: "err",     label: "Error de conexión",  cls: "err",     match: ["ERROR"] },
+    { key: "blocked", label: "No verificables",    cls: "neutral", match: ["BLOCKED"] }
+  ];
+  var STRIP_COLOR = {
+    ok: "var(--good)", bad: "var(--critical)", warn: "var(--warn)",
+    err: "var(--serious)", neutral: "var(--muted)"
+  };
+
+  var data = JSON.parse(document.getElementById("status-data").textContent);
+  var state = { q: "", tags: {}, bucket: null };
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function bucketOf(status) {
+    for (var i = 0; i < BUCKETS.length; i++)
+      if (BUCKETS[i].match.indexOf(status) !== -1) return BUCKETS[i].key;
+    return "ok";
+  }
+  function matches(r) {
+    if (state.bucket && bucketOf(r.status) !== state.bucket) return false;
+    var active = Object.keys(state.tags);
+    if (active.length) {
+      var hit = (r.tags || []).some(function (t) { return state.tags[t]; });
+      if (!hit) return false;
+    }
+    if (state.q) {
+      var hay = (r.org + " " + r.id + " " + r.url + " " +
+        (r.tags || []).map(function (t) { return TAGS[t] || t; }).join(" ")).toLowerCase();
+      if (hay.indexOf(state.q) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderStamp() {
+    var d = new Date(data.generated_at);
+    var fmt = new Intl.DateTimeFormat("es-ES", {
+      dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Madrid"
+    });
+    document.getElementById("stamp-date").textContent = fmt.format(d) + " (hora peninsular)";
+    document.getElementById("stamp-count").textContent = data.results.length;
+    var mins = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
+    document.getElementById("stamp-ago").textContent =
+      mins < 60 ? "hace " + mins + " min" :
+      mins < 2880 ? "hace " + Math.round(mins / 60) + " h" :
+      "hace " + Math.round(mins / 1440) + " días";
+  }
+
+  function renderSummary() {
+    var strip = document.getElementById("strip");
+    var tiles = document.getElementById("tiles");
+    strip.innerHTML = ""; tiles.innerHTML = "";
+    var total = data.results.length;
+    BUCKETS.forEach(function (b) {
+      var n = data.results.filter(function (r) { return b.match.indexOf(r.status) !== -1; }).length;
+      if (n > 0) {
+        var seg = document.createElement("span");
+        seg.style.width = (100 * n / total) + "%";
+        seg.style.background = STRIP_COLOR[b.cls];
+        seg.title = b.label + ": " + n;
+        strip.appendChild(seg);
+      }
+      var t = document.createElement("button");
+      t.className = "tile"; t.type = "button";
+      t.setAttribute("aria-pressed", state.bucket === b.key ? "true" : "false");
+      t.innerHTML = '<span class="dot ' + b.cls + '"></span><span class="n">' + n +
+        '</span><span class="l">' + b.label + "</span>";
+      t.addEventListener("click", function () {
+        state.bucket = state.bucket === b.key ? null : b.key;
+        renderSummary(); renderSections();
+      });
+      tiles.appendChild(t);
+    });
+  }
+
+  function renderChips() {
+    var box = document.getElementById("chips");
+    box.innerHTML = "";
+    var counts = {};
+    data.results.forEach(function (r) {
+      (r.tags || []).forEach(function (t) { counts[t] = (counts[t] || 0) + 1; });
+    });
+    Object.keys(TAGS).forEach(function (t) {
+      if (!counts[t]) return;
+      var c = document.createElement("button");
+      c.className = "chip"; c.type = "button"; c.dataset.tag = t;
+      c.setAttribute("aria-pressed", state.tags[t] ? "true" : "false");
+      c.innerHTML = esc(TAGS[t]) + ' <span class="c">' + counts[t] + "</span>";
+      c.addEventListener("click", function () { toggleTag(t); });
+      box.appendChild(c);
+    });
+    var any = Object.keys(state.tags).length || state.bucket || state.q;
+    if (any) {
+      var clear = document.createElement("button");
+      clear.className = "chip clear"; clear.type = "button";
+      clear.textContent = "Limpiar filtros";
+      clear.addEventListener("click", function () {
+        state.tags = {}; state.bucket = null; state.q = "";
+        document.getElementById("search").value = "";
+        renderSummary(); renderChips(); renderSections();
+      });
+      box.appendChild(clear);
+    }
+  }
+  function toggleTag(t) {
+    if (state.tags[t]) delete state.tags[t]; else state.tags[t] = true;
+    renderChips(); renderSections();
+  }
+
+  function rowHTML(r) {
+    var s = STATUS[r.status] || STATUS.OK;
+    var host = r.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    var region = REGIONS[r.region] || r.region;
+    var tagBtns = (r.tags || []).map(function (t) {
+      return '<button type="button" data-tag="' + esc(t) + '">' + esc(TAGS[t] || t) + "</button>";
+    }).join("");
+    if (r.region !== "ES") tagBtns = '<button type="button" disabled style="cursor:default">' +
+      esc(region) + "</button>" + tagBtns;
+    return '<div class="row' + (r.alert ? " alert " + s.cls : "") + '">' +
+      '<span class="pill ' + s.cls + '"><span class="dot ' + s.cls + '"></span>' + s.label + "</span>" +
+      '<div class="who">' +
+        '<div class="org"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.org) + "</a></div>" +
+        '<div class="url">' + esc(host) + "</div>" +
+        (r.detail ? '<div class="detail">' + esc(r.detail) + "</div>" : "") +
+        (tagBtns ? '<div class="mini">' + tagBtns + "</div>" : "") +
+      "</div>" +
+      '<div class="meta">' + (r.elapsed_ms ? '<span class="ms">' + r.elapsed_ms + " ms</span>" : "") + "</div>" +
+    "</div>";
+  }
+
+  function renderSections() {
+    var main = document.getElementById("sections");
+    main.innerHTML = "";
+    var shownTotal = 0;
+    GROUPS.forEach(function (g) {
+      var all = data.results.filter(function (r) { return r.level === g[0]; });
+      var shown = all.filter(matches);
+      if (!shown.length) return;
+      shownTotal += shown.length;
+      shown.sort(function (a, b) {
+        var sa = (STATUS[a.status] || STATUS.OK).sev, sb = (STATUS[b.status] || STATUS.OK).sev;
+        if (sa !== sb) return sa - sb;
+        return a.org.localeCompare(b.org, "es");
+      });
+      var ok = all.filter(function (r) { return r.status === "OK"; }).length;
+      var sec = document.createElement("section");
+      sec.innerHTML = '<div class="sec-head"><h2>' + esc(g[1]) + '</h2>' +
+        '<span class="tally">' + ok + " de " + all.length + " operativas</span></div>" +
+        '<div class="rows">' + shown.map(rowHTML).join("") + "</div>";
+      main.appendChild(sec);
+    });
+    if (!shownTotal) {
+      main.innerHTML = '<p class="empty" style="display:block">Ningún enlace coincide con esos filtros.</p>';
+    }
+    main.querySelectorAll(".mini button[data-tag]").forEach(function (b) {
+      b.addEventListener("click", function () { toggleTag(b.dataset.tag); });
+    });
+  }
+
+  document.getElementById("search").addEventListener("input", function (e) {
+    state.q = e.target.value.trim().toLowerCase();
+    renderChips(); renderSections();
+  });
+
+  function boot() {
+    renderStamp(); renderSummary(); renderChips(); renderSections();
+  }
+
+  // On GitHub Pages a fresher status.json sits next to this file; the embedded
+  // snapshot is the fallback (and all an artifact preview can use).
+  fetch("status.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (fresh) { if (fresh && fresh.results) { data = fresh; } boot(); })
+    .catch(boot);
+})();
+</script>
+
+</body>
+</html>

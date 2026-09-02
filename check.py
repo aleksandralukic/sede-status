@@ -209,7 +209,18 @@ def main():
         print(f"{flag} {status:<9} {seed['id']:<24} {code:<4} {elapsed:>6}ms  {detail}")
 
     con.commit()
-    json.dump({"generated_at": now, "results": results},
+
+    # A filtered run (--only) must not clobber the rest of the dashboard:
+    # merge this run's results over whatever OUT already holds.
+    merged = {}
+    try:
+        for r in json.load(open(OUT, encoding="utf-8"))["results"]:
+            merged[r["id"]] = r
+    except (OSError, ValueError, KeyError):
+        pass
+    for r in results:
+        merged[r["id"]] = r
+    json.dump({"generated_at": now, "results": list(merged.values())},
               open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
     counts = {s: sum(1 for r in results if r["status"] == s) for s in STATUSES}
