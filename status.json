@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T08:18:41.907343+00:00",
+  "generated_at": "2026-09-10T11:21:04.235668+00:00",
   "results": [
     {
       "id": "pag-home",
@@ -58,8 +58,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://clave.gob.es/clave",
-      "elapsed_ms": 918,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 631,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -99,8 +99,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.citapreviadnie.es/citaPreviaDni/Inicio.action",
-      "elapsed_ms": 630,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 949,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -118,12 +118,12 @@
       ],
       "criticality": "high",
       "notes": "Cita previa extranjería. Breaks constantly, thousands depend on it.",
-      "status": "OK",
-      "http": 200,
-      "detail": "",
+      "status": "ERROR",
+      "http": 0,
+      "detail": "ConnectionError",
       "final_url": "https://sede.administracionespublicas.gob.es/",
-      "elapsed_ms": 1322,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 25072,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -163,8 +163,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.agenciatributaria.gob.es/",
-      "elapsed_ms": 680,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 1112,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -186,8 +186,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio",
-      "elapsed_ms": 407,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 520,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -245,12 +245,12 @@
         "prestaciones"
       ],
       "criticality": "high",
-      "status": "OK",
-      "http": 200,
-      "detail": "",
-      "final_url": "https://sede.sepe.gob.es/portalSede",
-      "elapsed_ms": 549,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "status": "ERROR",
+      "http": 0,
+      "detail": "ConnectTimeout",
+      "final_url": "https://sede.sepe.gob.es/",
+      "elapsed_ms": 25064,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -816,8 +816,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.saludinforma.es/portalsi/web/salud/inicio",
-      "elapsed_ms": 2082,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 1662,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
@@ -856,8 +856,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/",
-      "elapsed_ms": 721,
-      "checked_at": "2026-09-10T08:18:41.907343+00:00",
+      "elapsed_ms": 942,
+      "checked_at": "2026-09-10T11:21:04.235668+00:00",
       "alert": false
     },
     {
