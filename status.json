@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T10:03:58.503229+00:00",
+  "generated_at": "2026-09-28T15:29:05.084832+00:00",
   "results": [
     {
       "id": "pag-home",
@@ -58,8 +58,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://clave.gob.es/clave",
-      "elapsed_ms": 693,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 112,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -99,8 +99,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.citapreviadnie.es/citaPreviaDni/Inicio.action",
-      "elapsed_ms": 688,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 1007,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -122,8 +122,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.administracionespublicas.gob.es/",
-      "elapsed_ms": 1561,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 1707,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -163,8 +163,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.agenciatributaria.gob.es/",
-      "elapsed_ms": 958,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 1154,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -186,8 +186,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio",
-      "elapsed_ms": 375,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 507,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -249,8 +249,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.sepe.gob.es/portalSede",
-      "elapsed_ms": 580,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 711,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -816,8 +816,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.saludinforma.es/portalsi/web/salud/inicio",
-      "elapsed_ms": 2532,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 2410,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": false
     },
     {
@@ -856,8 +856,8 @@
       "http": 0,
       "detail": "ConnectTimeout",
       "final_url": "https://www.zaragoza.es/sede/",
-      "elapsed_ms": 25187,
-      "checked_at": "2026-09-28T10:03:58.503229+00:00",
+      "elapsed_ms": 25210,
+      "checked_at": "2026-09-28T15:29:05.084832+00:00",
       "alert": true
     },
     {
