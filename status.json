@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T04:50:32.173827+00:00",
+  "generated_at": "2026-10-23T08:45:22.640395+00:00",
   "results": [
     {
       "id": "pag-home",
@@ -17,8 +17,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://administracion.gob.es/",
-      "elapsed_ms": 63,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 2441,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -36,8 +36,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.administracion.gob.es/",
-      "elapsed_ms": 189,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 940,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -58,8 +58,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://clave.gob.es/clave",
-      "elapsed_ms": 556,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 1450,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -77,8 +77,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.sede.fnmt.gob.es/",
-      "elapsed_ms": 272,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 464,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -99,8 +99,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.citapreviadnie.es/citaPreviaDni/Inicio.action",
-      "elapsed_ms": 624,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 948,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -122,8 +122,8 @@
       "http": 503,
       "detail": "http 503",
       "final_url": "https://sede.administracionespublicas.gob.es/",
-      "elapsed_ms": 531,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 707,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": true
     },
     {
@@ -142,8 +142,8 @@
       "http": 403,
       "detail": "http 403, likely WAF",
       "final_url": "https://www.inclusion.gob.es/web/migraciones/inicio",
-      "elapsed_ms": 81,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 134,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -163,8 +163,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.agenciatributaria.gob.es/",
-      "elapsed_ms": 700,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 1067,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -186,8 +186,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Inicio",
-      "elapsed_ms": 506,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 263,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -207,8 +207,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8d06-4645-bde7-05374ee42ac7",
-      "elapsed_ms": 179,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 446,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -227,8 +227,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.sepe.es/HomeSepe",
-      "elapsed_ms": 613,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 827,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -249,8 +249,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.sepe.gob.es/portalSede",
-      "elapsed_ms": 500,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 650,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -268,8 +268,8 @@
       "http": 0,
       "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.mites.gob.es/",
-      "elapsed_ms": 536,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 728,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": true
     },
     {
@@ -287,8 +287,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.dgt.gob.es/es/",
-      "elapsed_ms": 858,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1142,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -307,8 +307,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.sedecatastro.gob.es/",
-      "elapsed_ms": 957,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1992,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -328,8 +328,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.mjusticia.gob.es/",
-      "elapsed_ms": 490,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 707,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -349,8 +349,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.mjusticia.gob.es/es/ciudadania/victimas",
-      "elapsed_ms": 1443,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1742,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -368,8 +368,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.poderjudicial.es/cgpj/",
-      "elapsed_ms": 744,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 981,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -388,8 +388,8 @@
       "http": 404,
       "detail": "http 404",
       "final_url": "https://www.abogacia.es/servicios-abogacia/justicia-gratuita/",
-      "elapsed_ms": 1034,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1683,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": true
     },
     {
@@ -407,8 +407,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://sede.educacion.gob.es/portada.html",
-      "elapsed_ms": 446,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 658,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -427,8 +427,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.becaseducacion.gob.es/portada.html",
-      "elapsed_ms": 673,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 966,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -446,8 +446,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.sanidad.gob.es/",
-      "elapsed_ms": 407,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 551,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -461,12 +461,12 @@
         "consumo"
       ],
       "criticality": "medium",
-      "status": "DEAD",
-      "http": 404,
-      "detail": "http 404",
-      "final_url": "https://www.dsca.gob.es/",
-      "elapsed_ms": 3769,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
+      "final_url": "https://www.dsca.gob.es/es",
+      "elapsed_ms": 2413,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -484,8 +484,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.aepd.es/",
-      "elapsed_ms": 140,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 130,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -503,8 +503,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.defensordelpueblo.es/",
-      "elapsed_ms": 2763,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 3710,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -522,8 +522,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.ine.es/",
-      "elapsed_ms": 1155,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1403,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -541,8 +541,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.boe.es/",
-      "elapsed_ms": 454,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 628,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -561,8 +561,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://datos.gob.es/es/",
-      "elapsed_ms": 684,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 476,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -581,8 +581,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://administracionelectronica.gob.es/",
-      "elapsed_ms": 2644,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1658,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -601,8 +601,8 @@
       "http": 200,
       "detail": "now redirects to https://administracion.gob.es/espanaadmon/sia",
       "final_url": "https://administracion.gob.es/espanaadmon/sia",
-      "elapsed_ms": 644,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1592,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -616,12 +616,12 @@
         "violencia-genero"
       ],
       "criticality": "medium",
-      "status": "ERROR",
-      "http": 0,
-      "detail": "ConnectionError",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://www.igualdad.gob.es/",
-      "elapsed_ms": 366,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 711,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -636,12 +636,12 @@
       ],
       "criticality": "high",
       "notes": "016 chat lives here. Highest-stakes link in the set.",
-      "status": "ERROR",
-      "http": 0,
-      "detail": "ConnectionError",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://violenciagenero.igualdad.gob.es/",
-      "elapsed_ms": 394,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 3807,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -659,8 +659,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.inmujeres.gob.es/",
-      "elapsed_ms": 548,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 755,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -679,8 +679,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://muface.es/",
-      "elapsed_ms": 1088,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 747,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -696,11 +696,11 @@
       "criticality": "high",
       "status": "ERROR",
       "http": 0,
-      "detail": "ConnectTimeout",
+      "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.aragon.es/",
-      "elapsed_ms": 25143,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
-      "alert": false
+      "elapsed_ms": 818,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
+      "alert": true
     },
     {
       "id": "aragon-tramites",
@@ -715,11 +715,11 @@
       "criticality": "high",
       "status": "ERROR",
       "http": 0,
-      "detail": "ConnectTimeout",
+      "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.aragon.es/tramites",
-      "elapsed_ms": 25114,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
-      "alert": false
+      "elapsed_ms": 809,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
+      "alert": true
     },
     {
       "id": "aragon-iam",
@@ -734,11 +734,11 @@
       "criticality": "high",
       "status": "ERROR",
       "http": 0,
-      "detail": "ConnectTimeout",
+      "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.aragon.es/gobierno/iam",
-      "elapsed_ms": 25099,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
-      "alert": false
+      "elapsed_ms": 564,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
+      "alert": true
     },
     {
       "id": "aragon-iam-servicios",
@@ -754,11 +754,11 @@
       "notes": "The '/-/' slug pattern on aragon.es is very rot-prone.",
       "status": "ERROR",
       "http": 0,
-      "detail": "ConnectTimeout",
+      "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.aragon.es/-/servicios-y-asesorias-instituto-aragones-de-la-mujer",
-      "elapsed_ms": 25121,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
-      "alert": false
+      "elapsed_ms": 683,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
+      "alert": true
     },
     {
       "id": "aragon-iass",
@@ -774,11 +774,11 @@
       "criticality": "high",
       "status": "ERROR",
       "http": 0,
-      "detail": "ConnectTimeout",
+      "detail": "SSLError (curl exit 60)",
       "final_url": "https://www.aragon.es/organismos/departamento-de-bienestar-social-y-familia/instituto-aragones-de-servicios-sociales",
-      "elapsed_ms": 25028,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
-      "alert": false
+      "elapsed_ms": 821,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
+      "alert": true
     },
     {
       "id": "inaem",
@@ -791,12 +791,12 @@
         "empleo"
       ],
       "criticality": "high",
-      "status": "ERROR",
-      "http": 0,
-      "detail": "ConnectTimeout",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://inaem.aragon.es/",
-      "elapsed_ms": 25115,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1626,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -816,8 +816,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.saludinforma.es/portalsi/web/salud/inicio",
-      "elapsed_ms": 11138,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 2122,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -831,12 +831,12 @@
         "meta-directorio"
       ],
       "criticality": "medium",
-      "status": "ERROR",
-      "http": 0,
-      "detail": "ConnectTimeout",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://www.boa.aragon.es/",
-      "elapsed_ms": 25150,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 772,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -856,8 +856,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/",
-      "elapsed_ms": 2415,
-      "checked_at": "2026-10-23T04:50:32.173827+00:00",
+      "elapsed_ms": 976,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -876,8 +876,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/portal/servicios-sociales/",
-      "elapsed_ms": 1102,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1484,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -897,8 +897,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/servicio/tramite/3317",
-      "elapsed_ms": 641,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1190,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -916,8 +916,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://dones.gencat.cat/ca/inici",
-      "elapsed_ms": 386,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 2593,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -935,8 +935,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.emakunde.euskadi.eus/hasiera/",
-      "elapsed_ms": 776,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 985,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -954,8 +954,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.comunidad.madrid/",
-      "elapsed_ms": 139,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 143,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -973,8 +973,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.juntadeandalucia.es/",
-      "elapsed_ms": 10515,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1676,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -988,12 +988,12 @@
         "servicios-sociales"
       ],
       "criticality": "high",
-      "status": "BLOCKED",
-      "http": 403,
-      "detail": "http 403, likely WAF",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://www2.cruzroja.es/",
-      "elapsed_ms": 147,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 2480,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1012,8 +1012,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.caritas.es/",
-      "elapsed_ms": 543,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 920,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1032,8 +1032,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.cear.es/",
-      "elapsed_ms": 128,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 136,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1052,8 +1052,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.accem.es/",
-      "elapsed_ms": 345,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 511,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1072,8 +1072,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.anar.org/",
-      "elapsed_ms": 890,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1469,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1091,8 +1091,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://telefonodelaesperanza.org/",
-      "elapsed_ms": 425,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 858,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1111,8 +1111,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.gitanos.org/",
-      "elapsed_ms": 1451,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 2231,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1131,8 +1131,8 @@
       "http": 0,
       "detail": "ConnectTimeout",
       "final_url": "https://congde.org/",
-      "elapsed_ms": 25357,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 25548,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": true
     },
     {
@@ -1147,12 +1147,12 @@
       ],
       "criticality": "medium",
       "notes": "Member directory - scaling input.",
-      "status": "ERROR",
-      "http": 0,
-      "detail": "ConnectTimeout",
+      "status": "OK",
+      "http": 200,
+      "detail": "",
       "final_url": "https://www.plataformaong.org/",
-      "elapsed_ms": 25364,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 880,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1168,12 +1168,12 @@
       ],
       "criticality": "high",
       "notes": "Added 2026-09-02 by request; redirects to web.zaragozadinamica.es.",
-      "status": "SOFT_404",
+      "status": "OK",
       "http": 200,
-      "detail": "body 12087b vs baseline 100190b",
-      "final_url": "https://www.zaragozadinamica.es/",
-      "elapsed_ms": 724,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "detail": "",
+      "final_url": "https://web.zaragozadinamica.es",
+      "elapsed_ms": 3521,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1192,8 +1192,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragozavivienda.es/",
-      "elapsed_ms": 536,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 812,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1213,8 +1213,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/portal/juventud/",
-      "elapsed_ms": 891,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 820,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1233,8 +1233,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/servicio/equipamiento/27707",
-      "elapsed_ms": 884,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1249,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     },
     {
@@ -1253,8 +1253,8 @@
       "http": 200,
       "detail": "",
       "final_url": "https://www.zaragoza.es/sede/portal/movilidad/",
-      "elapsed_ms": 622,
-      "checked_at": "2026-10-22T08:49:45.629852+00:00",
+      "elapsed_ms": 1238,
+      "checked_at": "2026-10-23T08:45:22.640395+00:00",
       "alert": false
     }
   ]
